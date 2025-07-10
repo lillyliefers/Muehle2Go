@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.GameFragment">
+
+    <!-- Hintergrund mit Linien -->
+    <ui.BoardOverlayView
+        android:id="@+id/overlayView"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:translationY="-22dp"
+        android:translationX="-4.5dp"/>
+
+
+    <!-- Spielfeld mit fester Größe -->
+    <LinearLayout
+        android:id="@+id/boardWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_winner_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#AAFFFFFF"
+            android:padding="12dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="-5dp">
+
+            <!-- Spielfeld-Container für Buttons -->
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                app:alignmentMode="alignMargins"
+                app:columnCount="7"
+                app:rowCount="7" />
+        </LinearLayout>
+
+        <!-- Spieleranzeige -->
+        <TextView
+            android:id="@+id/text_current_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aktueller Spieler:"
+            android:textSize="18sp"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal" />
+
+        <!-- Restart-Button -->
+        <Button
+            android:id="@+id/button_restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neu starten"
+            android:visibility="gone"
+            android:layout_marginTop="16dp" />
+        </LinearLayout>
+
+</FrameLayout>
